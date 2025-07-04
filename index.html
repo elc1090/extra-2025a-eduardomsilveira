@@ -32,154 +32,82 @@
 <body>
 
 <div class="container">
-  <h3 class="bold">Avaliação de Andamento de Trabalho de Graduação</h3>
-  <h4 class="bold">Ciência da Computação / UFSM</h4>
+  <h3 class="bold">Ata de Apresentação de Trabalho de Conclusão de Curso</h3>
   <form id="evaluationForm" action="javascript:" onsubmit="generatePDF.open()" onreset="resetAllFields()">
 
     <section id="generalInformation" class="section card card-panel">
 
       <span class="card-title bold">Informações gerais</span>
-    
-      <div class="row mb-0">
-        <div class="col s12 mt-2 mb-2">
-          <div class="col s6">
-            <label class="black-text">
-              <input class="with-gap" name="period" type="radio" value="1"/>
-              <span>1º Semestre</span>
-            </label>
-          </div>
-          <div class="col s6">
-            <label class="black-text">
-              <input class="with-gap" name="period" type="radio" value="2"/>
-              <span>2º Semestre</span>
-            </label>
-          </div>
-          <span id="periodError" class="red-text"></span>
-        </div>        
+
         <div class="input-field col s12">
           <input id="studentName" name="studentName" type="text"/>
-          <label for="studentName">Nome do(a) estudante</label>
+          <label for="studentName">Título do Trabalho</label>
           <span id="studentNameError" class="red-text"></span>
         </div>
+
         <div class="input-field col s12">
-          <input id="date" name="date" type="text" class="datepicker"/>
-          <label for="date">Data</label>
-          <span id="dateError" class="red-text"></span>
-        </div>
-        <div class="input-field col s12">
-          <input id="time" name="time" type="text" class="timepicker"/>
-          <label for="time">Horário</label>
-          <span id="timeError" class="red-text"></span>
-        </div>        
-        <div class="input-field col s12">
-          <input id="professorName" name="professorName" type="text"/>
-          <label for="professorName">Nome do(a) avaliador(a)</label>
-          <span id="professorNameError" class="red-text"></span>
-        </div>
-      </div>
-    
-      <div class="row">
-
-    
-
-      </div>
-    
-    </section>
-    
-    <!-- <section id="generalInformation" class="section card card-panel">
-
-      <span class="card-title bold">Informações gerais</span>
-
-      <div class="row mb-0">
-        <div class="input-field col s12 m6">
           <input id="studentName" name="studentName" type="text"/>
-          <label for="studentName">Nome do(a) estudante</label>
+          <label for="studentName">Nome do Aluno</label>
           <span id="studentNameError" class="red-text"></span>
         </div>
-        <div class="input-field col s12 m6">
-          <input id="professorName" name="professorName" type="text"/>
-          <label for="professorName">Nome do(a) avaliador(a)</label>
-          <span id="professorNameError" class="red-text"></span>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="col s12 m6 mt-2 mb-2">
-          <div class="col s6">
-            <label class="black-text">
-              <input class="with-gap" name="period" type="radio" value="1"/>
-              <span>1º Semestre</span>
-            </label>
-          </div>
-          <div class="col s6">
-            <label class="black-text">
-              <input class="with-gap" name="period" type="radio" value="2"/>
-              <span>2º Semestre</span>
-            </label>
-          </div>
-          <span id="periodError" class="red-text"></span>
+        <div class="input-field col s12">
+          <input id="studentName" name="studentName" type="text"/>
+          <label for="studentName">Nome do Professor(a) Orientador(a)</label>
+          <span id="studentNameError" class="red-text"></span>
         </div>
 
-        <div class="input-field col s12 m3">
-          <input id="date" name="date" type="text" class="datepicker"/>
-          <label for="date">Data</label>
-          <span id="dateError" class="red-text"></span>
+        <div class="input-field col s12">
+          <input id="studentName" name="studentName" type="text"/>
+          <label for="studentName">Nome do Professor(a) Avaliador(a) 1</label>
+          <span id="studentNameError" class="red-text"></span>
         </div>
-        <div class="input-field col s12 m3">
-          <input id="time" name="time" type="text" class="timepicker"/>
-          <label for="time">Horário</label>
-          <span id="timeError" class="red-text"></span>
+
+        <div class="input-field col s12">
+          <input id="studentName" name="studentName" type="text"/>
+          <label for="studentName">Nome do Professor(a) Avaliador(a) 2</label>
+          <span id="studentNameError" class="red-text"></span>
         </div>
-      </div>
 
-    </section> -->
-
-
-
-
-    <section id="evaluation" class="section card card-panel">
-
-      <span class="card-title bold">Avaliação</span>
-
-      <div class="row">
-
-
-        <div class="range-field col s12 mt-1 mb-1">
-          <label for="presentationRubric1" class="black-text">Apresentação (máx 5,0): </label>
-          <span id="presentationRubric1Value" class="black-text bold"></span>
-          <input class="mt-3" type="range" id="presentationRubric1" name="presentationRubric1" min="0" max="5"
-                 step="0.1"/>
-          <span id="presentationRubric1Error" class="red-text"></span>
+        <div class="input-field col s12">
+          <input id="studentName" name="studentName" type="text"/>
+          <label for="studentName">Curso do Aluno</label>
+          <span id="studentNameError" class="red-text"></span>
         </div>
 
         <div class="range-field col s12 mt-1 mb-1">
-          <label for="presentationRubric2" class="black-text">Relatório escrito: qualidade do conteúdo (máx 3,0): </label>
+          <label for="presentationRubric2" class="black-text">Nota Final</label>
           <span id="presentationRubric2Value" class="black-text bold"></span>
-          <input class="mt-3" type="range" id="presentationRubric2" name="presentationRubric2" min="0" max="3"
+          <input class="mt-3" type="range" id="presentationRubric2" name="presentationRubric2" min="0" max="10"
                  step="0.1"/>
           <span id="presentationRubric2Error" class="red-text"></span>
         </div>
 
-        <div class="range-field col s12 mt-1 mb-1">
-          <label for="presentationRubric3" class="black-text">Relatório escrito: relevância e originalidade (máx 2,0): </label>
-          <span id="presentationRubric3Value" class="black-text bold"></span>
-          <input class="mt-3" type="range" id="presentationRubric3" name="presentationRubric3" min="0" max="2"
-                 step="0.1"/>
-          <span id="presentationRubric3Error" class="red-text"></span>
+        <div class="input-field col s12">
+          <input id="date" name="date" type="text" class="datepicker"/>
+          <label for="date">Data</label>
+          <span id="dateError" class="red-text"></span>
         </div>
 
+        <div class="input-field col s12">
+          <input id="time" name="time" type="text" class="timepicker"/>
+          <label for="time">Horário</label>
+          <span id="timeError" class="red-text"></span>
+        </div>        
 
-
+        <div class="input-field col s12">
+          <input id="studentName" name="studentName" type="text"/>
+          <label for="studentName">Sala</label>
+          <span id="studentNameError" class="red-text"></span>
+        </div>
 
       </div>
+    
       <div class="row">
-        <label for="finalValue" class="black-text">Nota de andamento (máx 10): </label>
-        <span id="finalValue" class="black-text bold"></span>
-        <p>Obs.: De acordo com as <a href="https://www.ufsm.br/app/uploads/sites/425/2025/04/Normas-Internas-TGs.pdf">normas</a>, a nota de andamento representa 30% da nota final. Os 70% restantes correspondem à nota da defesa, que acontecerá no final do semestre. </p>
 
       </div>
+    
     </section>
-
 
     <section id="signature" class="section card card-panel">
       <span class="card-title bold">Assinatura</span>
@@ -243,22 +171,18 @@
           </div>
         </div>
       </div>
-    </section>
-    
 
-    <!-- <section id="signature" class="section card card-panel">
-      <span class="card-title bold">Assinatura</span>
       <div class="row">
         <div class="col s12 m6 mt-2">
           <div class="col s6">
             <label class="black-text">
-              <input class="with-gap" name="signatureType" type="radio" value="DRAW"/>
+              <input class="with-gap" name="signatureType" type="radio" value="DRAW" onclick="showCanvas()"/>
               <span>Desenhar</span>
             </label>
           </div>
           <div class="col s6">
             <label class="black-text">
-              <input class="with-gap" name="signatureType" type="radio" value="SELECT"/>
+              <input class="with-gap" name="signatureType" type="radio" value="SELECT" onclick="showSelect()"/>
               <span>Selecionar</span>
             </label>
           </div>
@@ -267,27 +191,146 @@
       </div>
       <div id="signatureWrapper" class="row">
         <div class="col s12 center">
-          <div id="signatureCanvasWrapper">
+          <div id="signatureCanvasWrapper" style="display:none; width: 100%; text-align: center;">
             <div class="row">
               <div class="col s12">
-                <canvas id="signatureCanvas"></canvas>
+                <div class="canvas-container">
+                  <canvas id="signatureCanvas"></canvas>
+                </div>
                 <input name="signatureCanvas" type="hidden">
               </div>
             </div>
             <div class="row">
               <div class="col s12">
-                <button class="btn btn-small waves-effect waves-light indigo lighten-1" type="button"
-                        onclick="signature.clearCanvas()">Limpar assinatura
-                </button>
+                <button class="btn btn-small waves-effect waves-light indigo lighten-1" type="button" onclick="clearCanvas()">Limpar assinatura</button>
               </div>
               <div class="col s12">
                 <span id="signatureCanvasError" class="red-text"></span>
               </div>
             </div>
           </div>
-          <div id="signatureSelect" class="file-field input-field">
+
+          <div id="signatureSelect" class="file-field input-field" style="display:none; width: 100%; text-align: center;">
+            <div class="row">
+              <div class="col s12" >
+                <img id="signaturePreview" src="#">
+              </div>
+            </div>
             <div class="row">
               <div class="col s12">
+                <div class="btn indigo darken-4">
+                  <span>Selecione o arquivo</span>
+                  <input id="signatureField" name="signatureField" type="file" accept="image/*">
+                </div>
+              </div>
+              <div class="col s12">
+                <span id="signatureFieldError" class="red-text"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12 m6 mt-2">
+          <div class="col s6">
+            <label class="black-text">
+              <input class="with-gap" name="signatureType" type="radio" value="DRAW" onclick="showCanvas()"/>
+              <span>Desenhar</span>
+            </label>
+          </div>
+          <div class="col s6">
+            <label class="black-text">
+              <input class="with-gap" name="signatureType" type="radio" value="SELECT" onclick="showSelect()"/>
+              <span>Selecionar</span>
+            </label>
+          </div>
+          <span id="signatureTypeError" class="red-text"></span>
+        </div>
+      </div>
+      <div id="signatureWrapper" class="row">
+        <div class="col s12 center">
+          <div id="signatureCanvasWrapper" style="display:none; width: 100%; text-align: center;">
+            <div class="row">
+              <div class="col s12">
+                <div class="canvas-container">
+                  <canvas id="signatureCanvas"></canvas>
+                </div>
+                <input name="signatureCanvas" type="hidden">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12">
+                <button class="btn btn-small waves-effect waves-light indigo lighten-1" type="button" onclick="clearCanvas()">Limpar assinatura</button>
+              </div>
+              <div class="col s12">
+                <span id="signatureCanvasError" class="red-text"></span>
+              </div>
+            </div>
+          </div>
+
+          <div id="signatureSelect" class="file-field input-field" style="display:none; width: 100%; text-align: center;">
+            <div class="row">
+              <div class="col s12" >
+                <img id="signaturePreview" src="#">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12">
+                <div class="btn indigo darken-4">
+                  <span>Selecione o arquivo</span>
+                  <input id="signatureField" name="signatureField" type="file" accept="image/*">
+                </div>
+              </div>
+              <div class="col s12">
+                <span id="signatureFieldError" class="red-text"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12 m6 mt-2">
+          <div class="col s6">
+            <label class="black-text">
+              <input class="with-gap" name="signatureType" type="radio" value="DRAW" onclick="showCanvas()"/>
+              <span>Desenhar</span>
+            </label>
+          </div>
+          <div class="col s6">
+            <label class="black-text">
+              <input class="with-gap" name="signatureType" type="radio" value="SELECT" onclick="showSelect()"/>
+              <span>Selecionar</span>
+            </label>
+          </div>
+          <span id="signatureTypeError" class="red-text"></span>
+        </div>
+      </div>
+      <div id="signatureWrapper" class="row">
+        <div class="col s12 center">
+          <div id="signatureCanvasWrapper" style="display:none; width: 100%; text-align: center;">
+            <div class="row">
+              <div class="col s12">
+                <div class="canvas-container">
+                  <canvas id="signatureCanvas"></canvas>
+                </div>
+                <input name="signatureCanvas" type="hidden">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12">
+                <button class="btn btn-small waves-effect waves-light indigo lighten-1" type="button" onclick="clearCanvas()">Limpar assinatura</button>
+              </div>
+              <div class="col s12">
+                <span id="signatureCanvasError" class="red-text"></span>
+              </div>
+            </div>
+          </div>
+
+          <div id="signatureSelect" class="file-field input-field" style="display:none; width: 100%; text-align: center;">
+            <div class="row">
+              <div class="col s12" >
                 <img id="signaturePreview" src="#">
               </div>
             </div>
@@ -306,15 +349,9 @@
         </div>
       </div>
     </section>
- -->
-
+    
     <footer id="footer" class="row">
     
-      <!-- <div class="col s12 m3 l2 mb-1 left-align" style="width: fit-content;">
-          <button class="btn btn-block waves-effect waves-light btn-flat indigo-text text-darken-4" type="button" onclick="copyLink()">
-            Orientador: Copiar Link
-          </button>        
-      </div> -->      
       <div class="col s12 m3 l2 mb-1 right">
         <button class="btn btn-block waves-effect waves-light indigo darken-4" type="submit">
           Gerar PDF
