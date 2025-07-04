@@ -1,0 +1,199 @@
+/* Defaults */
+
+body {
+  background-color: #ebebeb;
+}
+
+h1 {
+  font-size: 3rem !important;
+}
+
+h2 {
+  font-size: 2.5rem !important;
+}
+
+h3 {
+  font-size: 2rem !important;
+}
+
+h4 {
+  font-size: 1.5rem !important;
+}
+
+h5 {
+  font-size: 1rem !important;
+}
+
+.btn-flat:hover {
+  background-color: transparent !important;
+}
+
+/* label focus color */
+.input-field input[type=text]:focus + label {
+  color: #1a237e !important;
+}
+
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #1a237e !important;
+  box-shadow: 0 1px 0 0 #1a237e !important;
+}
+
+/* date and time picker color */
+.datepicker-date-display, .timepicker-digital-display {
+  background-color: #1a237e !important;
+}
+
+.datepicker-table td.is-today {
+  color: #1a237e !important;
+}
+
+.datepicker-table td.is-selected {
+  background-color: #1a237e !important;
+  color: #ffffff !important;
+}
+
+.datepicker-cancel, .datepicker-clear, .datepicker-today, .datepicker-done, .timepicker-close {
+  color: #1a237e !important;
+}
+
+.datepicker-footer {
+  display: none;
+}
+
+.timepicker-canvas-bg {
+  fill: #c5cae9 !important;
+}
+
+.timepicker-canvas line {
+  stroke: #1a237e !important;
+}
+
+.timepicker-canvas-bearing {
+  fill: #1a237e !important;
+}
+
+.file-field .btn {
+  float: none !important;
+}
+
+/* checkbox checked color */
+[type="radio"]:checked + span::after, [type="radio"].with-gap:checked + span::after {
+  background-color: #1a237e !important;
+}
+
+[type="radio"]:checked + span::after, [type="radio"].with-gap:checked + span::before, [type="radio"].with-gap:checked + span::after {
+  border: 2px solid #1a237e !important;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  background-color: #1a237e !important;
+}
+
+input[type=range]::-moz-range-thumb {
+  background-color: #1a237e !important;
+}
+
+input[type=range]::-ms-thumb {
+  background-color: #1a237e !important;
+}
+
+input[type=range] + .thumb {
+  background-color: #1a237e !important;
+  top: 40px !important;
+}
+
+input[type=range] + .thumb.active {
+  top: 10px !important;
+}
+
+input[type=range] + .thumb .value {
+  color: transparent !important;
+  font-size: 12px !important;
+  margin-top: 6px !important;
+}
+
+input[type=range] + .thumb.active .value {
+  color: #fff !important;
+  margin-left: -2px !important;
+}
+
+#evaluation label {
+  font-size: 1rem;
+}
+
+#signatureCanvasWrapper, #signatureSelect, #signaturePreview {
+  display: none;
+}
+
+#signatureCanvas {
+  border: solid 1px #000;
+}
+
+#signaturePreview {
+  max-width: 15rem;
+}
+
+/* Ensures the canvas stays within its parent and is centered */
+.canvas-container {
+  display: inline-block;
+  max-width: 100%; /* Make sure it doesn't overflow its container */
+  text-align: center; /* Center the canvas horizontally */
+  position: relative; /* Allows for positioning the canvas */
+}
+
+canvas {
+  width: 100%; /* Make the canvas responsive */
+  height: auto; /* Maintain aspect ratio */
+  border: 1px solid #000; /* Optional: border for visibility */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Optional: make button full-width only on mobile */
+/* @media (max-width: 6600px) { */
+@media {  
+  .full-width-on-mobile {
+    display: block;
+    width: 100%;
+  }
+}
+
+.btn-left-align {
+  text-align: left !important;
+}
+
+.btn-block {
+  width: 100% !important;
+}
+
+.bold {
+  font-weight: bold !important;
+}
+
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.mt-1 {
+  margin-top: 1rem !important;
+}
+
+.mb-1 {
+  margin-bottom: 1rem !important;
+}
+
+.mt-2 {
+  margin-top: 2rem !important;
+}
+
+.mb-2 {
+  margin-bottom: 2rem !important;
+}
+
+.mt-3 {
+  margin-top: 3rem !important;
+}
+
+.mb-3 {
+  margin-bottom: 3rem !important;
+}
