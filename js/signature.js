@@ -1,18 +1,18 @@
 const Signature = class {
-  constructor() {
+  constructor(signatureCanvas) {
     this.type = "";
-    this.canvas = $('#signatureCanvas')[0];
+    this.canvas = $(signatureCanvas)[0];
     this.ctx = this.canvas.getContext('2d');
     this.position = { x: 0, y: 0 };
     this.painting = false;
   }
 
-  initialize = () => {
+  initialize = (signatureCanvasWrapper, signatureSelect, signatureType, signatureField, signaturePreview) => {
     $(document).ready(() => {
       this.bindCanvasEvents();
       this.bindTouchEvents();
-      this.bindInputChange();
-      this.bindSignatureTypeToggle();
+      this.bindInputChange(signatureField, signaturePreview);
+      this.bindSignatureTypeToggle(signatureType);
     });
   }
 
@@ -28,35 +28,35 @@ const Signature = class {
     $(this.canvas).on("touchmove", (event) => this.handleTouch(event, "mousemove"));
   }
 
-  bindInputChange = () => {
-    $('#signatureField').change(() => {
+  bindInputChange = (signatureField, signaturePreview) => {
+    $(signatureField).change(() => {
       console.log("Change triggered!");
-      const file = $('#signatureField').prop("files")[0];
+      const file = $(signatureField).prop("files")[0];
       if (!file) return;
 
       const reader = new FileReader();
       reader.readAsDataURL(file);
 
       reader.addEventListener("load", () => {
-        $('#signaturePreview')
+        $(signaturePreview)
           .attr("src", reader.result)
           .css({ display: 'inline' });
       });
     });
   }
 
-  bindSignatureTypeToggle = () => {
-    $('input[name=signatureType]').change(this.handleSignatureTypeChange);
+  bindSignatureTypeToggle = (signatureType) => {
+    $(`input[name=${signatureType}]`).change(this.handleSignatureTypeChange);
   }
 
-  handleSignatureTypeChange = () => {
-    this.type = $('input[name=signatureType]:checked').val();
+  handleSignatureTypeChange = (signatureCanvasWrapper, signatureSelect, signatureType) => {
+    this.type = $(`input[name=${signatureType}]:checked`).val();
     if (this.type === "DRAW") {
-      $('#signatureCanvasWrapper').show();
-      $('#signatureSelect').hide();
+      $(signatureCanvasWrapper).show();
+      $(signatureSelect).hide();
     } else if (this.type === "SELECT") {
-      $('#signatureSelect').show();
-      $('#signatureCanvasWrapper').hide();
+      $(signatureSelect).show();
+      $(signatureCanvasWrapper).hide();
     }
   }
 
@@ -70,10 +70,10 @@ const Signature = class {
     this.canvas.dispatchEvent(mouseEvent);
   }
 
-  getSignatureImage = () => {
+  getSignatureImage = (signaturePreview) => {
     return this.type === "DRAW"
       ? this.canvas.toDataURL("image/png")
-      : $('#signaturePreview').attr("src");
+      : $(signaturePreview).attr("src");
   }
 
   getPosition = (event) => {
@@ -108,8 +108,8 @@ const Signature = class {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
   }
 
-  clearPreview = () => {
-    $('#signaturePreview').attr("src", "#");
+  clearPreview = (signaturePreview) => {
+    $(signaturePreview).attr("src", "#");
   }
 
   isBlank = () => {
