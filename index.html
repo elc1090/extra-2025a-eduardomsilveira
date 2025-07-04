@@ -40,8 +40,8 @@
       <span class="card-title bold">Informações gerais</span>
 
         <div class="input-field col s12">
-          <input id="studentName" name="studentName" type="text"/>
-          <label for="studentName">Título do Trabalho</label>
+          <input id="workTitle" name="workTitle" type="text"/>
+          <label for="workTitle">Título do Trabalho</label>
           <span id="studentNameError" class="red-text"></span>
         </div>
 
@@ -52,35 +52,35 @@
         </div>
 
         <div class="input-field col s12">
-          <input id="studentName" name="studentName" type="text"/>
-          <label for="studentName">Nome do Professor(a) Orientador(a)</label>
+          <input id="professorName" name="professorName" type="text"/>
+          <label for="professorName">Nome do Professor(a) Orientador(a)</label>
           <span id="studentNameError" class="red-text"></span>
         </div>
 
         <div class="input-field col s12">
-          <input id="studentName" name="studentName" type="text"/>
-          <label for="studentName">Nome do Professor(a) Avaliador(a) 1</label>
+          <input id="reviewerName1" name="reviewerName1" type="text"/>
+          <label for="reviewerName1">Nome do Professor(a) Avaliador(a) 1</label>
           <span id="studentNameError" class="red-text"></span>
         </div>
 
         <div class="input-field col s12">
-          <input id="studentName" name="studentName" type="text"/>
-          <label for="studentName">Nome do Professor(a) Avaliador(a) 2</label>
+          <input id="reviewerName2" name="reviewerName2" type="text"/>
+          <label for="reviewerName2">Nome do Professor(a) Avaliador(a) 1</label>
           <span id="studentNameError" class="red-text"></span>
         </div>
 
         <div class="input-field col s12">
-          <input id="studentName" name="studentName" type="text"/>
-          <label for="studentName">Curso do Aluno</label>
+          <input id="studentDegree" name="studentDegree" type="text"/>
+          <label for="studentDegree">Curso do Aluno</label>
           <span id="studentNameError" class="red-text"></span>
         </div>
 
         <div class="range-field col s12 mt-1 mb-1">
-          <label for="presentationRubric2" class="black-text">Nota Final</label>
-          <span id="presentationRubric2Value" class="black-text bold"></span>
-          <input class="mt-3" type="range" id="presentationRubric2" name="presentationRubric2" min="0" max="10"
+          <label for="score" class="black-text">Nota Final</label>
+          <span id="scoreValue" class="black-text bold"></span>
+          <input class="mt-3" type="range" id="score" name="score" min="0" max="10"
                  step="0.1"/>
-          <span id="presentationRubric2Error" class="red-text"></span>
+          <span id="studentNameError" class="red-text"></span>
         </div>
 
         <div class="input-field col s12">
@@ -96,9 +96,15 @@
         </div>        
 
         <div class="input-field col s12">
-          <input id="studentName" name="studentName" type="text"/>
-          <label for="studentName">Sala</label>
+          <input id="room" name="room" type="text"/>
+          <label for="room">Sala</label>
           <span id="studentNameError" class="red-text"></span>
+        </div>
+
+        <div class="input-field col s12">
+          <input id="doomsday" name="doomsday" type="text" class="datepicker"/>
+          <label for="doomsday">Data Final para Entregar a Cópia Definitiva do Trabalho de Graduação</label>
+          <span id="dateError" class="red-text"></span>
         </div>
 
       </div>
@@ -117,13 +123,13 @@
         <div class="col s12 m6 mt-2">
           <div class="col s6">
             <label class="black-text">
-              <input class="with-gap" name="signatureType" type="radio" value="DRAW" onclick="showCanvas()"/>
+              <input class="with-gap" name="signatureType" type="radio" value="DRAW" onclick="showCanvas('professorSignatureCanvasWrapper', 'professorSignatureSelect')"/>
               <span>Desenhar</span>
             </label>
           </div>
           <div class="col s6">
             <label class="black-text">
-              <input class="with-gap" name="signatureType" type="radio" value="SELECT" onclick="showSelect()"/>
+              <input class="with-gap" name="signatureType" type="radio" value="SELECT" onclick="showSelect('professorSignatureCanvasWrapper', 'professorSignatureSelect')"/>
               <span>Selecionar</span>
             </label>
           </div>
@@ -132,7 +138,7 @@
       </div>
       <div id="signatureWrapper" class="row">
         <div class="col s12 center">
-          <div id="signatureCanvasWrapper" style="display:none; width: 100%; text-align: center;">
+          <div id="professorSignatureCanvasWrapper" style="display:none; width: 100%; text-align: center;">
             <div class="row">
               <div class="col s12">
                 <div class="canvas-container">
@@ -151,7 +157,7 @@
             </div>
           </div>
 
-          <div id="signatureSelect" class="file-field input-field" style="display:none; width: 100%; text-align: center;">
+          <div id="professorSignatureSelect" class="file-field input-field" style="display:none; width: 100%; text-align: center;">
             <div class="row">
               <div class="col s12" >
                 <img id="signaturePreview" src="#">
@@ -176,13 +182,13 @@
         <div class="col s12 m6 mt-2">
           <div class="col s6">
             <label class="black-text">
-              <input class="with-gap" name="signatureType" type="radio" value="DRAW" onclick="showCanvas()"/>
+              <input class="with-gap" name="signatureType" type="radio" value="DRAW" onclick="showCanvas('reviewer1SignatureCanvasWrapper', 'reviewer1SignatureSelect')"/>
               <span>Desenhar</span>
             </label>
           </div>
           <div class="col s6">
             <label class="black-text">
-              <input class="with-gap" name="signatureType" type="radio" value="SELECT" onclick="showSelect()"/>
+              <input class="with-gap" name="signatureType" type="radio" value="SELECT" onclick="showSelect('reviewer1SignatureCanvasWrapper', 'reviewer1SignatureSelect')"/>
               <span>Selecionar</span>
             </label>
           </div>
@@ -191,7 +197,7 @@
       </div>
       <div id="signatureWrapper" class="row">
         <div class="col s12 center">
-          <div id="signatureCanvasWrapper" style="display:none; width: 100%; text-align: center;">
+          <div id="reviewer1SignatureCanvasWrapper" style="display:none; width: 100%; text-align: center;">
             <div class="row">
               <div class="col s12">
                 <div class="canvas-container">
@@ -210,7 +216,7 @@
             </div>
           </div>
 
-          <div id="signatureSelect" class="file-field input-field" style="display:none; width: 100%; text-align: center;">
+          <div id="reviewer1SignatureSelect" class="file-field input-field" style="display:none; width: 100%; text-align: center;">
             <div class="row">
               <div class="col s12" >
                 <img id="signaturePreview" src="#">
@@ -235,13 +241,13 @@
         <div class="col s12 m6 mt-2">
           <div class="col s6">
             <label class="black-text">
-              <input class="with-gap" name="signatureType" type="radio" value="DRAW" onclick="showCanvas()"/>
+              <input class="with-gap" name="signatureType" type="radio" value="DRAW" onclick="showCanvas('reviewer2SignatureCanvasWrapper', 'reviewer2SignatureSelect')"/>
               <span>Desenhar</span>
             </label>
           </div>
           <div class="col s6">
             <label class="black-text">
-              <input class="with-gap" name="signatureType" type="radio" value="SELECT" onclick="showSelect()"/>
+              <input class="with-gap" name="signatureType" type="radio" value="SELECT" onclick="showSelect('reviewer2SignatureCanvasWrapper', 'reviewer2SignatureSelect')"/>
               <span>Selecionar</span>
             </label>
           </div>
@@ -250,7 +256,7 @@
       </div>
       <div id="signatureWrapper" class="row">
         <div class="col s12 center">
-          <div id="signatureCanvasWrapper" style="display:none; width: 100%; text-align: center;">
+          <div id="reviewer2SignatureCanvasWrapper" style="display:none; width: 100%; text-align: center;">
             <div class="row">
               <div class="col s12">
                 <div class="canvas-container">
@@ -269,7 +275,7 @@
             </div>
           </div>
 
-          <div id="signatureSelect" class="file-field input-field" style="display:none; width: 100%; text-align: center;">
+          <div id="reviewer2SignatureSelect" class="file-field input-field" style="display:none; width: 100%; text-align: center;">
             <div class="row">
               <div class="col s12" >
                 <img id="signaturePreview" src="#">
@@ -290,17 +296,18 @@
         </div>
       </div>
 
+
       <div class="row">
         <div class="col s12 m6 mt-2">
           <div class="col s6">
             <label class="black-text">
-              <input class="with-gap" name="signatureType" type="radio" value="DRAW" onclick="showCanvas()"/>
+              <input class="with-gap" name="signatureType" type="radio" value="DRAW" onclick="showCanvas('studentSignatureCanvasWrapper', 'studentSignatureSelect')"/>
               <span>Desenhar</span>
             </label>
           </div>
           <div class="col s6">
             <label class="black-text">
-              <input class="with-gap" name="signatureType" type="radio" value="SELECT" onclick="showSelect()"/>
+              <input class="with-gap" name="signatureType" type="radio" value="SELECT" onclick="showSelect('studentSignatureCanvasWrapper', 'studentSignatureSelect')"/>
               <span>Selecionar</span>
             </label>
           </div>
@@ -309,7 +316,7 @@
       </div>
       <div id="signatureWrapper" class="row">
         <div class="col s12 center">
-          <div id="signatureCanvasWrapper" style="display:none; width: 100%; text-align: center;">
+          <div id="studentSignatureCanvasWrapper" style="display:none; width: 100%; text-align: center;">
             <div class="row">
               <div class="col s12">
                 <div class="canvas-container">
@@ -328,7 +335,7 @@
             </div>
           </div>
 
-          <div id="signatureSelect" class="file-field input-field" style="display:none; width: 100%; text-align: center;">
+          <div id="studentSignatureSelect" class="file-field input-field" style="display:none; width: 100%; text-align: center;">
             <div class="row">
               <div class="col s12" >
                 <img id="signaturePreview" src="#">

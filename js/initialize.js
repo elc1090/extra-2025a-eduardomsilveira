@@ -45,14 +45,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
   canvas.addEventListener('touchend', endPosition);
   canvas.addEventListener('touchmove', draw);
 
-  function showCanvas() {
-    document.getElementById('signatureCanvasWrapper').style.display = 'block';
-    document.getElementById('signatureSelect').style.display = 'none';
+  function showCanvas(canvasId, selectId) {
+    document.getElementById(canvasId).style.display = 'block';
+    document.getElementById(selectId).style.display = 'none';
   }
 
-  function showSelect() {
-    document.getElementById('signatureCanvasWrapper').style.display = 'none';
-    document.getElementById('signatureSelect').style.display = 'block';
+  function showSelect(canvasId, selectId) {
+    document.getElementById(canvasId).style.display = 'none';
+    document.getElementById(selectId).style.display = 'block';
   }
 
   window.showCanvas = showCanvas;
@@ -123,7 +123,7 @@ $(document).ready(function () {
 
 
 
-  $('#presentationRubric1, #presentationRubric2, #presentationRubric3').change((e) => {
+  $('#score').change((e) => {
     const elementId = e.target.id
     const value = $(`#${elementId} + .thumb .value`).text()
     $(`#${elementId}Value`).text(value)
@@ -152,42 +152,8 @@ const initializeFields = () => {
   M.updateTextFields()
 }
 
-const calculateFinalValue = () => {
-  const presentationRubric1 = $(`#presentationRubric1Value`).text()
-  const presentationRubric2 = $(`#presentationRubric2Value`).text()
-  const presentationRubric3 = $(`#presentationRubric3Value`).text()
-
-
-  const currentTimestamp = Date.now()
-
-  
-  // if (presentationRubric1 && presentationRubric2 && presentationRubric3 && contentRubric1 && contentRubric2 && contentRubric3 && contentRubric4) {
-    const finalValue = Number(presentationRubric1) +
-      Number(presentationRubric2) +
-      Number(presentationRubric3) 
-    $(`#finalValue`).text(finalValue.toFixed(1))
-    
-  // }
-  // if (relevanceAndOriginality && contentQuality && presentation) {
-  // const finalValue = Number(relevanceAndOriginality) + Number(contentQuality) + Number(presentation)
-
-
-  // if (contentRubric4) {
-  //   console.log(contentRubric4)
-  // } else {
-  //   console.log('false')
-  // }
-  
-  // $(`#finalValue`).text(finalValue.toFixed(1))
-  
-  // }
-}
-
 const resetAllFields = () => {
-  $(`#presentationRubric1`).text("")
-  $(`#presentationRubric2`).text("")
-  $(`#presentationRubric3`).text("")
-  $(`#finalValue`).text("")
+  $(`#score`).text("")
 
   signature.clearCanvas()
   signature.clearPreview()
