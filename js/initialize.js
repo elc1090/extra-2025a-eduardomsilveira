@@ -16,9 +16,6 @@ function showSelect(canvasId, selectId) {
     document.getElementById(selectId).style.display = 'block';
 }
 
-document.addEventListener('DOMContentLoaded', initializeCanvasCallback('studentSignatureCanvas'));
-document.addEventListener('DOMContentLoaded', initializeCanvasCallback('professorSignatureCanvas'));
-
 $(document).ready(function() {
     $('.datepicker').datepicker({
         format: "dd/mm/yyyy",
