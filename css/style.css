@@ -122,7 +122,13 @@ input[type=range] + .thumb.active .value {
   font-size: 1rem;
 }
 
-#signatureCanvasWrapper, #signatureSelect, #signaturePreview {
+#signatureCanvasWrapper, 
+#signatureSelect, 
+#signaturePreview, 
+#studentSignaturePreview,
+#professorSignaturePreview,
+#reviewer1SignaturePreview,
+#reviewer2SignaturePreview {
   display: none;
 }
 
@@ -130,7 +136,11 @@ input[type=range] + .thumb.active .value {
   border: solid 1px #000;
 }
 
-#signaturePreview {
+#signaturePreview,
+#studentSignaturePreview,
+#professorSignaturePreview,
+#reviewer1SignaturePreview,
+#reviewer2SignaturePreview {
   max-width: 15rem;
 }
 
