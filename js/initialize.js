@@ -1,4 +1,5 @@
 const studentSignature = new Signature('#studentSignatureCanvas');
+const professorSignature = new Signature('#professorSignatureCanvas');
 
 const generatePDF = new GeneratePDF()
 const validation = new Validation()
@@ -15,54 +16,52 @@ function showSelect(canvasId, selectId) {
     document.getElementById(selectId).style.display = 'block';
 }
 
-document.addEventListener('DOMContentLoaded', (event) => {
-    const canvas = document.getElementById('studentSignatureCanvas');
-    const ctx = canvas.getContext('2d');
+function initializeCanvasCallback(signatureCanvas) {
+    return () => {
+        const canvas = document.getElementById(signatureCanvas);
+        const ctx = canvas.getContext('2d');
 
-    let drawing = false;
+        let drawing = false;
 
-    function startPosition(e) {
-        drawing = true;
-        draw(e);
-    }
+        function startPosition(e) {
+            drawing = true;
+            draw(e);
+        }
 
-    function endPosition() {
-        drawing = false;
-        ctx.beginPath();
-    }
+        function endPosition() {
+            drawing = false;
+            ctx.beginPath();
+        }
 
-    function draw(e) {
-        if (!drawing) return;
-        e.preventDefault(); // Prevent scrolling
+        function draw(e) {
+            if (!drawing) return;
+            e.preventDefault(); // Prevent scrolling
 
-        const rect = canvas.getBoundingClientRect();
-        const x = e.clientX ? e.clientX - rect.left : e.touches[0].clientX - rect.left;
-        const y = e.clientY ? e.clientY - rect.top : e.touches[0].clientY - rect.top;
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX ? e.clientX - rect.left : e.touches[0].clientX - rect.left;
+            const y = e.clientY ? e.clientY - rect.top : e.touches[0].clientY - rect.top;
 
-        ctx.lineWidth = 2;
-        ctx.lineCap = 'round';
+            ctx.lineWidth = 2;
+            ctx.lineCap = 'round';
 
-        ctx.lineTo(x, y);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.moveTo(x, y);
-    }
+            ctx.lineTo(x, y);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+        }
 
-    canvas.addEventListener('mousedown', startPosition);
-    canvas.addEventListener('mouseup', endPosition);
-    canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mousedown', startPosition);
+        canvas.addEventListener('mouseup', endPosition);
+        canvas.addEventListener('mousemove', draw);
 
-    canvas.addEventListener('touchstart', startPosition);
-    canvas.addEventListener('touchend', endPosition);
-    canvas.addEventListener('touchmove', draw);
+        canvas.addEventListener('touchstart', startPosition);
+        canvas.addEventListener('touchend', endPosition);
+        canvas.addEventListener('touchmove', draw);
+    };
+}
 
-
-    function clearCanvas() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-    }
-
-    window.clearCanvas = clearCanvas;
-});
+document.addEventListener('DOMContentLoaded', initializeCanvasCallback('studentSignatureCanvas'));
+document.addEventListener('DOMContentLoaded', initializeCanvasCallback('professorSignatureCanvas'));
 
 $(document).ready(function() {
     $('.datepicker').datepicker({
@@ -122,9 +121,11 @@ $(document).ready(function() {
     })
 
     $('input[type=radio][name=studentSignatureType]').change(studentSignature.handleSignatureTypeChange)
+    $('input[type=radio][name=professorSignatureType]').change(professorSignature.handleSignatureTypeChange)
 
     initializeFields()
     studentSignature.initialize('#studentSignatureCanvasWrapper', '#studentSignatureSelect', 'studentSignatureType', '#studentSignatureField', '#studentSignaturePreview')
+    professorSignature.initialize('#professorSignatureCanvasWrapper', '#professorSignatureSelect', 'professorSignatureType', '#professorSignatureField', '#professorSignaturePreview')
     validation.initialize()
 });
 
@@ -148,6 +149,12 @@ const resetAllFields = () => {
     $('#studentSignatureCanvasWrapper').hide()
     $('#studentSignaturePreview').hide()
     $('#studentSignatureSelect').hide()
+
+    professorSignature.clearCanvas()
+    professorSignature.clearPreview()
+    $('#professorSignatureCanvasWrapper').hide()
+    $('#professorSignaturePreview').hide()
+    $('#professorSignatureSelect').hide()
 }
 
 const copyLink = () => {
