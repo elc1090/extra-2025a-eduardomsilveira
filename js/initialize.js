@@ -131,9 +131,15 @@ const copyLink = () => {
 
     const link = `${window.location.href}?studentName=${encodeURIComponent(data.generalInformation.studentName)}`
         + `&professorName=${encodeURIComponent(data.generalInformation.professorName)}`
-        + `&period=${data.generalInformation.period}`
+        + `&reviewerName1=${encodeURIComponent(data.generalInformation.reviewerName1)}`
+        + `&reviewerName2=${encodeURIComponent(data.generalInformation.reviewerName2)}`
+        + `&workTitle=${encodeURIComponent(data.generalInformation.workTitle)}`
+        + `&score=${encodeURIComponent(data.generalInformation.score)}`
+        + `&studentDegree=${encodeURIComponent(data.generalInformation.studentDegree)}`
+        + `&room=${encodeURIComponent(data.generalInformation.room)}`
         + `&date=${encodeURIComponent(data.generalInformation.date)}`
         + `&time=${encodeURIComponent(data.generalInformation.time)}`
+        + `&doomsday=${encodeURIComponent(data.generalInformation.doomsday)}`
 
     navigator.clipboard.writeText(link)
 
