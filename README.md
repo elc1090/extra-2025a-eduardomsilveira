@@ -13,7 +13,7 @@ Aplicativo para registrar apresentações de TCC e gerar PDF.
 
 
 ### Desenvolvimento
-Tive que implementar funcionalidades a partir de um código existente. O trabalho foi muito interessante e desafiador, já que tive que compreender o funcionamento de boa parte do projeto antes de começar a implementar os requisitos do trabalho. Além disso, tive que lidar com coisas que eu nunca tinha lidado antes, como algumas partes da API do Javascript, e as bibliotecas Materialize e pdfmake. Durante esse trabalho, percebi como as linguagens dinâmicas podem dificultar o desenvolvimento quando é necessário refatorar grande parte do código, já que as mudanças no código só geram erros em tempo de execução.
+Tive que implementar funcionalidades a partir de um código existente. O trabalho foi muito interessante e desafiador, já que tive que compreender o funcionamento de boa parte do projeto antes de começar a implementar os requisitos do trabalho. Além disso, tive que lidar com coisas que eu nunca tinha lidado antes, como algumas partes da API do Javascript, e as bibliotecas Materialize e pdfmake. Durante esse trabalho, percebi como as linguagens dinâmicas podem dificultar o desenvolvimento quando é necessário refatorar grande parte do código, já que as mudanças no código só geram erros em tempo de execução. Como faz falta um type checker!
 
 #### Tecnologias
 - Javascript
