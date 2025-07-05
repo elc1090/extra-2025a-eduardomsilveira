@@ -1,17 +1,17 @@
 const studentSignature = new Signature('#studentSignatureCanvas');
 const professorSignature = new Signature('#professorSignatureCanvas');
+const reviewer1Signature = new Signature('#reviewer1SignatureCanvas');
+const reviewer2Signature = new Signature('#reviewer2SignatureCanvas');
 
 const generatePDF = new GeneratePDF()
 const validation = new Validation()
 
 function showCanvas(canvasId, selectId) {
-    console.log("Calling showCanvas with", canvasId, selectId);
     document.getElementById(canvasId).style.display = 'block';
     document.getElementById(selectId).style.display = 'none';
 }
 
 function showSelect(canvasId, selectId) {
-    console.log("Calling showSelect with", canvasId, selectId);
     document.getElementById(canvasId).style.display = 'none';
     document.getElementById(selectId).style.display = 'block';
 }
@@ -75,10 +75,14 @@ $(document).ready(function() {
 
     $('input[type=radio][name=studentSignatureType]').change(studentSignature.handleSignatureTypeChange)
     $('input[type=radio][name=professorSignatureType]').change(professorSignature.handleSignatureTypeChange)
+    $('input[type=radio][name=reviewer1SignatureType]').change(reviewer1Signature.handleSignatureTypeChange)
+    $('input[type=radio][name=reviewer2SignatureType]').change(reviewer2Signature.handleSignatureTypeChange)
 
     initializeFields()
     studentSignature.initialize('#studentSignatureCanvasWrapper', '#studentSignatureSelect', 'studentSignatureType', '#studentSignatureField', '#studentSignaturePreview')
     professorSignature.initialize('#professorSignatureCanvasWrapper', '#professorSignatureSelect', 'professorSignatureType', '#professorSignatureField', '#professorSignaturePreview')
+    reviewer1Signature.initialize('#reviewer1SignatureCanvasWrapper', '#reviewer1SignatureSelect', 'reviewer1SignatureType', '#reviewer1SignatureField', '#reviewer1SignaturePreview')
+    reviewer2Signature.initialize('#reviewer2SignatureCanvasWrapper', '#reviewer2SignatureSelect', 'reviewer2SignatureType', '#reviewer2SignatureField', '#reviewer2SignaturePreview')
     validation.initialize()
 });
 
@@ -108,6 +112,18 @@ const resetAllFields = () => {
     $('#professorSignatureCanvasWrapper').hide()
     $('#professorSignaturePreview').hide()
     $('#professorSignatureSelect').hide()
+
+    reviewer1Signature.clearCanvas()
+    reviewer1Signature.clearPreview()
+    $('#reviewer1SignatureCanvasWrapper').hide()
+    $('#reviewer1SignaturePreview').hide()
+    $('#reviewer1SignatureSelect').hide()
+
+    reviewer2Signature.clearCanvas()
+    reviewer2Signature.clearPreview()
+    $('#reviewer2SignatureCanvasWrapper').hide()
+    $('#reviewer2SignaturePreview').hide()
+    $('#reviewer2SignatureSelect').hide()
 }
 
 const copyLink = () => {

@@ -81,21 +81,76 @@ const GeneratePDF = class {
                     text: [ // :|
                         `Santa Maria, RS ${data.generalInformation.currentDay.getDate()} de ${numeroParaMes(data.generalInformation.currentDay.getMonth() + 1)} de ${data.generalInformation.currentDay.getFullYear()}`
                     ],
-                    style: "normal"
+                    style: "right"
                 },
-                // { text: "\n\n", style: "normal" },
-                // {
-                //     image: data.signature,
-                //     width: 150,
-                //     style: "center"
-                // },
-                // {
-                //     text: [
-                //         "___________________________________\n",
-                //         "Avaliador(a)"
-                //     ],
-                //     style: "center"
-                // }
+                { text: "\n\n", style: "normal" },
+                {
+                    columns: [
+                        {
+                            image: data.professorSignature,
+                            width: 150,
+                            style: "center"
+                        },
+                        { text: "", width: "*" },
+                        {
+                            image: data.reviewer1Signature,
+                            width: 150,
+                            style: "center"
+                        },
+                    ]
+                },
+                {
+                    columns: [
+                        {
+                            text: [
+                                "___________________________________\n",
+                                "Professor(a) Orientador(a)"
+                            ],
+                            style: "center"
+                        },
+                        {
+                            text: [
+                                "___________________________________\n",
+                                "Avaliador(a)"
+                            ],
+                            style: "center"
+                        },
+                    ]
+                },
+                {
+                    columns: [
+                        {
+                            image: data.reviewer2Signature,
+                            width: 150,
+                            style: "center"
+                        },
+                        { text: "", width: "*" },
+                        {
+                            image: data.studentSignature,
+                            width: 150,
+                            style: "center"
+                        },
+                    ]
+                },
+                {
+                    columns: [
+                        {
+                            text: [
+                                "___________________________________\n",
+                                "Avaliador(a)"
+                            ],
+                            style: "center"
+                        },
+                        {
+                            text: [
+                                "___________________________________\n",
+                                "Acadêmico(a)"
+                            ],
+                            style: "center"
+                        },
+                    ]
+                },
+                { text: "\n\n", style: "normal" }
             ],
             styles: {
                 header: {
@@ -133,7 +188,19 @@ const GeneratePDF = class {
                     fontSize: 12,
                     alignment: "center",
                     lineHeight: 1.5
-                }
+                },
+                left: {
+                    font: "Times",
+                    fontSize: 12,
+                    alignment: "left",
+                    lineHeight: 1.5
+                },
+                right: {
+                    font: "Times",
+                    fontSize: 12,
+                    alignment: "right",
+                    lineHeight: 1.5
+                },
             }
         }
     }
@@ -157,7 +224,10 @@ const GeneratePDF = class {
             evaluation: {
                 score: Number($(`#scoreValue`).text()),
             },
-            signature: signature.getSignatureImage()
+            professorSignature: professorSignature.getSignatureImage(),
+            reviewer1Signature: reviewer1Signature.getSignatureImage(),
+            reviewer2Signature: reviewer2Signature.getSignatureImage(),
+            studentSignature: studentSignature.getSignatureImage(),
         }
 
 
