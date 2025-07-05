@@ -1,11 +1,22 @@
-const signature = new Signature()
+const studentSignature = new Signature('#studentSignatureCanvas');
+
 const generatePDF = new GeneratePDF()
 const validation = new Validation()
 
+function showCanvas(canvasId, selectId) {
+    console.log("Calling showCanvas with", canvasId, selectId);
+    document.getElementById(canvasId).style.display = 'block';
+    document.getElementById(selectId).style.display = 'none';
+}
 
+function showSelect(canvasId, selectId) {
+    console.log("Calling showSelect with", canvasId, selectId);
+    document.getElementById(canvasId).style.display = 'none';
+    document.getElementById(selectId).style.display = 'block';
+}
 
 document.addEventListener('DOMContentLoaded', (event) => {
-    const canvas = document.getElementById('signatureCanvas');
+    const canvas = document.getElementById('studentSignatureCanvas');
     const ctx = canvas.getContext('2d');
 
     let drawing = false;
@@ -45,18 +56,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     canvas.addEventListener('touchend', endPosition);
     canvas.addEventListener('touchmove', draw);
 
-    function showCanvas(canvasId, selectId) {
-        document.getElementById(canvasId).style.display = 'block';
-        document.getElementById(selectId).style.display = 'none';
-    }
-
-    function showSelect(canvasId, selectId) {
-        document.getElementById(canvasId).style.display = 'none';
-        document.getElementById(selectId).style.display = 'block';
-    }
-
-    window.showCanvas = showCanvas;
-    window.showSelect = showSelect;
 
     function clearCanvas() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -64,11 +63,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     window.clearCanvas = clearCanvas;
 });
-
-
-
-
-
 
 $(document).ready(function() {
     $('.datepicker').datepicker({
@@ -119,10 +113,6 @@ $(document).ready(function() {
         }
     })
 
-
-
-
-
     $('#score').change((e) => {
         const elementId = e.target.id
         const value = $(`#${elementId} + .thumb .value`).text()
@@ -131,12 +121,10 @@ $(document).ready(function() {
 
     })
 
-
-
-    $('input[type=radio][name=signatureType]').change(signature.handleSignatureTypeChange)
+    $('input[type=radio][name=studentSignatureType]').change(studentSignature.handleSignatureTypeChange)
 
     initializeFields()
-    signature.initialize()
+    studentSignature.initialize('#studentSignatureCanvasWrapper', '#studentSignatureSelect', 'studentSignatureType', '#studentSignatureField', '#studentSignaturePreview')
     validation.initialize()
 });
 
@@ -155,11 +143,11 @@ const initializeFields = () => {
 const resetAllFields = () => {
     $(`#score`).text("")
 
-    signature.clearCanvas()
-    signature.clearPreview()
-    $('#signatureCanvasWrapper').hide()
-    $('#signaturePreview').hide()
-    $('#signatureSelect').hide()
+    studentSignature.clearCanvas()
+    studentSignature.clearPreview()
+    $('#studentSignatureCanvasWrapper').hide()
+    $('#studentSignaturePreview').hide()
+    $('#studentSignatureSelect').hide()
 }
 
 const copyLink = () => {

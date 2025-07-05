@@ -123,28 +123,28 @@
         <div class="col s12 m6 mt-2">
           <div class="col s6">
             <label class="black-text">
-              <input class="with-gap" name="signatureType" type="radio" value="DRAW" onclick="showCanvas('signatureCanvasWrapper', 'signatureSelect')"/>
+              <input class="with-gap" name="studentSignatureType" type="radio" value="DRAW" onclick="showCanvas('studentSignatureCanvas', 'studentSignatureSelect')"/>
               <span>Desenhar</span>
             </label>
           </div>
           <div class="col s6">
             <label class="black-text">
-              <input class="with-gap" name="signatureType" type="radio" value="SELECT" onclick="showSelect('signatureCanvasWrapper', 'signatureSelect')"/>
+              <input class="with-gap" name="studentSignatureType" type="radio" value="SELECT" onclick="showSelect('studentSignatureCanvas', 'studentSignatureSelect')"/>
               <span>Selecionar</span>
             </label>
           </div>
           <span id="signatureTypeError" class="red-text"></span>
         </div>
       </div>
-      <div id="professorSignatureWrapper" class="row">
+      <div id="studentSignatureWrapper" class="row">
         <div class="col s12 center">
-          <div id="signatureCanvasWrapper" style="display:none; width: 100%; text-align: center;">
+          <div id="studentSignatureCanvasWrapper" style="display:none; width: 100%; text-align: center;">
             <div class="row">
               <div class="col s12">
                 <div class="canvas-container">
-                  <canvas id="signatureCanvas"></canvas>
+                  <canvas id="studentSignatureCanvas"></canvas>
                 </div>
-                <input name="signatureCanvas" type="hidden">
+                <input name="studentSignatureCanvas" type="hidden">
               </div>
             </div>
             <div class="row">
@@ -157,194 +157,17 @@
             </div>
           </div>
 
-          <div id="signatureSelect" class="file-field input-field" style="display:none; width: 100%; text-align: center;">
+          <div id="studentSignatureSelect" class="file-field input-field" style="display:none; width: 100%; text-align: center;">
             <div class="row">
               <div class="col s12" >
-                <img id="signaturePreview" src="#">
+                <img id="studentSignaturePreview" src="#">
               </div>
             </div>
             <div class="row">
               <div class="col s12">
                 <div class="btn indigo darken-4">
                   <span>Selecione o arquivo</span>
-                  <input id="signatureField" name="signatureField" type="file" accept="image/*">
-                </div>
-              </div>
-              <div class="col s12">
-                <span id="signatureFieldError" class="red-text"></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col s12 m6 mt-2">
-          <div class="col s6">
-            <label class="black-text">
-              <input class="with-gap" name="signatureType" type="radio" value="DRAW" onclick="showCanvas()"/>
-              <span>Desenhar</span>
-            </label>
-          </div>
-          <div class="col s6">
-            <label class="black-text">
-              <input class="with-gap" name="signatureType" type="radio" value="SELECT" onclick="showSelect()"/>
-              <span>Selecionar</span>
-            </label>
-          </div>
-          <span id="signatureTypeError" class="red-text"></span>
-        </div>
-      </div>
-      <div id="reviewer1SignatureWrapper" class="row">
-        <div class="col s12 center">
-          <div id="signatureCanvasWrapper" style="display:none; width: 100%; text-align: center;">
-            <div class="row">
-              <div class="col s12">
-                <div class="canvas-container">
-                  <canvas id="signatureCanvas"></canvas>
-                </div>
-                <input name="signatureCanvas" type="hidden">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col s12">
-                <button class="btn btn-small waves-effect waves-light indigo lighten-1" type="button" onclick="clearCanvas()">Limpar assinatura</button>
-              </div>
-              <div class="col s12">
-                <span id="signatureCanvasError" class="red-text"></span>
-              </div>
-            </div>
-          </div>
-
-          <div id="signatureSelect" class="file-field input-field" style="display:none; width: 100%; text-align: center;">
-            <div class="row">
-              <div class="col s12" >
-                <img id="signaturePreview" src="#">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col s12">
-                <div class="btn indigo darken-4">
-                  <span>Selecione o arquivo</span>
-                  <input id="signatureField" name="signatureField" type="file" accept="image/*">
-                </div>
-              </div>
-              <div class="col s12">
-                <span id="signatureFieldError" class="red-text"></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col s12 m6 mt-2">
-          <div class="col s6">
-            <label class="black-text">
-              <input class="with-gap" name="signatureType" type="radio" value="DRAW" onclick="showCanvas()"/>
-              <span>Desenhar</span>
-            </label>
-          </div>
-          <div class="col s6">
-            <label class="black-text">
-              <input class="with-gap" name="signatureType" type="radio" value="SELECT" onclick="showSelect()"/>
-              <span>Selecionar</span>
-            </label>
-          </div>
-          <span id="signatureTypeError" class="red-text"></span>
-        </div>
-      </div>
-      <div id="signatureWrapper" class="row">
-        <div class="col s12 center">
-          <div id="signatureCanvasWrapper" style="display:none; width: 100%; text-align: center;">
-            <div class="row">
-              <div class="col s12">
-                <div class="canvas-container">
-                  <canvas id="signatureCanvas"></canvas>
-                </div>
-                <input name="signatureCanvas" type="hidden">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col s12">
-                <button class="btn btn-small waves-effect waves-light indigo lighten-1" type="button" onclick="clearCanvas()">Limpar assinatura</button>
-              </div>
-              <div class="col s12">
-                <span id="signatureCanvasError" class="red-text"></span>
-              </div>
-            </div>
-          </div>
-
-          <div id="signatureSelect" class="file-field input-field" style="display:none; width: 100%; text-align: center;">
-            <div class="row">
-              <div class="col s12" >
-                <img id="signaturePreview" src="#">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col s12">
-                <div class="btn indigo darken-4">
-                  <span>Selecione o arquivo</span>
-                  <input id="signatureField" name="signatureField" type="file" accept="image/*">
-                </div>
-              </div>
-              <div class="col s12">
-                <span id="signatureFieldError" class="red-text"></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col s12 m6 mt-2">
-          <div class="col s6">
-            <label class="black-text">
-              <input class="with-gap" name="signatureType" type="radio" value="DRAW" onclick="showCanvas()"/>
-              <span>Desenhar</span>
-            </label>
-          </div>
-          <div class="col s6">
-            <label class="black-text">
-              <input class="with-gap" name="signatureType" type="radio" value="SELECT" onclick="showSelect()"/>
-              <span>Selecionar</span>
-            </label>
-          </div>
-          <span id="signatureTypeError" class="red-text"></span>
-        </div>
-      </div>
-      <div id="signatureWrapper" class="row">
-        <div class="col s12 center">
-          <div id="signatureCanvasWrapper" style="display:none; width: 100%; text-align: center;">
-            <div class="row">
-              <div class="col s12">
-                <div class="canvas-container">
-                  <canvas id="signatureCanvas"></canvas>
-                </div>
-                <input name="signatureCanvas" type="hidden">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col s12">
-                <button class="btn btn-small waves-effect waves-light indigo lighten-1" type="button" onclick="clearCanvas()">Limpar assinatura</button>
-              </div>
-              <div class="col s12">
-                <span id="signatureCanvasError" class="red-text"></span>
-              </div>
-            </div>
-          </div>
-
-          <div id="signatureSelect" class="file-field input-field" style="display:none; width: 100%; text-align: center;">
-            <div class="row">
-              <div class="col s12" >
-                <img id="signaturePreview" src="#">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col s12">
-                <div class="btn indigo darken-4">
-                  <span>Selecione o arquivo</span>
-                  <input id="signatureField" name="signatureField" type="file" accept="image/*">
+                  <input id="studentSignatureField" name="studentSignatureField" type="file" accept="image/*">
                 </div>
               </div>
               <div class="col s12">
