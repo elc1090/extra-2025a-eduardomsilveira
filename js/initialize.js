@@ -16,50 +16,6 @@ function showSelect(canvasId, selectId) {
     document.getElementById(selectId).style.display = 'block';
 }
 
-function initializeCanvasCallback(signatureCanvas) {
-    return () => {
-        const canvas = document.getElementById(signatureCanvas);
-        const ctx = canvas.getContext('2d');
-
-        let drawing = false;
-
-        function startPosition(e) {
-            drawing = true;
-            draw(e);
-        }
-
-        function endPosition() {
-            drawing = false;
-            ctx.beginPath();
-        }
-
-        function draw(e) {
-            if (!drawing) return;
-            e.preventDefault(); // Prevent scrolling
-
-            const rect = canvas.getBoundingClientRect();
-            const x = e.clientX ? e.clientX - rect.left : e.touches[0].clientX - rect.left;
-            const y = e.clientY ? e.clientY - rect.top : e.touches[0].clientY - rect.top;
-
-            ctx.lineWidth = 2;
-            ctx.lineCap = 'round';
-
-            ctx.lineTo(x, y);
-            ctx.stroke();
-            ctx.beginPath();
-            ctx.moveTo(x, y);
-        }
-
-        canvas.addEventListener('mousedown', startPosition);
-        canvas.addEventListener('mouseup', endPosition);
-        canvas.addEventListener('mousemove', draw);
-
-        canvas.addEventListener('touchstart', startPosition);
-        canvas.addEventListener('touchend', endPosition);
-        canvas.addEventListener('touchmove', draw);
-    };
-}
-
 document.addEventListener('DOMContentLoaded', initializeCanvasCallback('studentSignatureCanvas'));
 document.addEventListener('DOMContentLoaded', initializeCanvasCallback('professorSignatureCanvas'));
 
